@@ -1,65 +1,96 @@
 import Image from "next/image";
 
+const details = [
+  {
+    label: "Status",
+    title: "PrepShelf is offline for now",
+    text:
+      "Exams are over, so we are taking the website down while we improve the product for the next season.",
+  },
+  {
+    label: "Premium",
+    title: "Your remaining access is protected",
+    text:
+      "Anyone whose premium was active when we paused will have that subscription resumed when PrepShelf is live again.",
+  },
+  {
+    label: "Support",
+    title: "Questions can still reach us",
+    text:
+      "For account, premium, or support concerns, email prepshelf.work@gmail.com.",
+  },
+];
+
+function StudyDeskScene() {
+  return (
+    <div className="study-desk" aria-hidden="true">
+      <div className="desk-lamp">
+        <span />
+      </div>
+      <div className="book-stack book-stack-one">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="book-stack book-stack-two">
+        <span />
+        <span />
+      </div>
+      <div className="paper-slip">
+        <span>PYQ</span>
+        <span>Notes</span>
+        <span>Syllabus</span>
+      </div>
+      <div className="desk-line" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative min-h-screen overflow-x-hidden bg-[var(--paper-bg)] text-[var(--ink-strong)] lg:h-screen lg:overflow-hidden">
+      <div className="ambient-grid" aria-hidden="true" />
+
+      <section className="relative mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[auto_auto] px-5 py-5 sm:px-8 lg:h-screen lg:min-h-0 lg:grid-rows-[1fr_auto] lg:px-10 lg:py-6">
+        <div className="grid items-center gap-5 pb-4 pt-1 lg:grid-cols-[minmax(0,0.98fr)_minmax(330px,0.64fr)] lg:gap-8 lg:py-2">
+          <div className="max-w-4xl">
+            <p className="notice-kicker">PrepShelf pause notice</p>
+            <h1 className="mt-4 max-w-4xl text-3xl font-semibold leading-[1.05] text-balance text-[var(--ink-strong)] sm:text-5xl lg:text-6xl">
+              This semester ends here,
+              <span className="block text-[var(--amber-deep)]">
+                PrepShelf will return sharper.
+              </span>
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--ink-soft)] sm:mt-5 sm:text-lg">
+              Thank you for studying with us. Since the exams are over, we are
+              taking PrepShelf down for now. When we come back, it will be more
+              refined, more reliable, and better built for the next round of
+              preparation.
+            </p>
+           
+          </div>
+
+          <aside className="relative min-h-[210px] sm:min-h-[270px] lg:min-h-[390px]">
+            <StudyDeskScene />
+          </aside>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <footer className="grid gap-3 border-t border-[var(--line)] pt-3 md:grid-cols-3 lg:pt-3">
+          {details.map((item) => (
+            <section key={item.label} className="detail-block">
+              <p className="text-[0.72rem] font-bold uppercase text-[var(--accent-blue)]">
+                {item.label}
+              </p>
+              <h2 className="mt-1.5 text-base font-semibold leading-5 text-[var(--ink-strong)]">
+                {item.title}
+              </h2>
+              <p className="mt-1.5 text-sm leading-5 text-[var(--ink-soft)]">
+                {item.text}
+              </p>
+            </section>
+          ))}
+        </footer>
+      </section>
+    </main>
   );
 }
